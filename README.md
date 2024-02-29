@@ -2,6 +2,8 @@
 
 Welcome to Azeroth Nodes, a distributed file system forged in the heart of Azeroth, powered by the robust and efficient Rust language. Just as the Alliance and Horde work together (or sometimes at odds) to secure the safety and prosperity of Azeroth, Azeroth Nodes aims to provide a resilient, scalable, and secure environment for storing and retrieving the realm's most precious artifacts—your data.
 
+![Azeroth Nodes logo](./.github/assets/AzerothNodes.webp)
+
 ## Overview
 
 Azeroth Nodes is inspired by the vast, interconnected world of World of Warcraft, where heroes band together to face challenges far greater than any could tackle alone. This project seeks to emulate that spirit of cooperation and interconnectedness by creating a file system that is decentralized, fault-tolerant, and capable of scaling to meet the needs of the modern data-driven world.
