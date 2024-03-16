@@ -6,11 +6,45 @@ Los Sistemas de Archivos Distribuidos (DFS) son fundamentales para manejar grand
 
 El concepto de DFS surge como una necesidad para manejar cantidades crecientes de datos y para proporcionar un acceso más rápido y confiable a estos datos, superando las limitaciones de los sistemas de archivos locales. Entre los primeros sistemas DFS se incluyen NFS (Network File System) y AFS (Andrew File System). Estos sistemas allanaron el camino para desarrollos más avanzados como GFS y HDFS, diseñados para satisfacer las demandas de aplicaciones de procesamiento de datos a gran escala.
 
-\section{Principios Clave de GFS}
+\section{Google File System (GFS)}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/1. Content/GoogleFileSystemGFS.png}
+        \caption{Google File System (GFS) Overview Architecture}
+        \label{fig: GFSArchitecture}
+    \end{subfigure}
+    \hfill
+\end{figure}
 
 El Google File System (GFS) es un DFS diseñado para sistemas de alta escala utilizados por Google. GFS se caracteriza por su alta tolerancia a fallos y su eficacia en el manejo de grandes cantidades de datos, lo que lo hace ideal para aplicaciones que requieren el procesamiento de una gran cantidad de información de manera rápida y confiable. GFS también utiliza un enfoque innovador en la coherencia y replicación de datos para asegurar la disponibilidad y la integridad de los datos.
 
-\section{Principios Clave de HDFS}
+\subsection{Principios Clave de GFS}
+
+El Google File System (GFS) se distingue por su diseño adaptado a aplicaciones que manejan grandes cantidades de datos. La arquitectura de GFS se basa en tres componentes principales: un único servidor maestro (Master), múltiples servidores chunk (Chunkservers), y los clientes que acceden al sistema.
+
+\subsubsection{Arquitectura}
+
+\begin{itemize}
+    \item \textbf{Master Server:} Gestiona el espacio de nombres del sistema de archivos, controla el mapeo de los archivos a chunks (bloques de datos), y administra las operaciones de control sobre los chunks. Mantiene toda la metadata en RAM para un acceso rápido.
+    \item \textbf{ChunkServers}: Almacenan los chunks (normalmente de 64 MB) en discos locales y sirven las solicitudes de lectura y escritura de los clientes. Los chunks se replican en varios ChunkServers para garantizar la tolerancia a fallos.
+\end{itemize}
+
+
+\section{Hadoop Distributed File System (HDFS)}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/1. Content/Hadoop-Distributed-File-System-HDFS.ppm}
+        \caption{Hadoop Distributed File System (HDFS) Overview Architecture}
+        \label{fig: HDFSArchitecture}
+    \end{subfigure}
+    \hfill
+\end{figure}
 
 El Hadoop Distributed File System (HDFS) es otro sistema DFS de gran relevancia, diseñado para trabajar con el framework de MapReduce. HDFS es conocido por su capacidad de almacenar enormes conjuntos de datos, su modelo de replicación para garantizar la disponibilidad de datos, y su arquitectura que permite la distribución efectiva y la replicación de los datos en múltiples nodos.
 
@@ -23,6 +57,17 @@ Aunque GFS y HDFS comparten similitudes en términos de ser sistemas de archivos
 Tanto GFS como HDFS han tenido un impacto considerable en el diseño y desarrollo de aplicaciones modernas de big data. Su capacidad para manejar grandes volúmenes de datos de manera eficiente y confiable ha permitido el desarrollo de soluciones avanzadas en áreas como el análisis de datos, la minería de datos y el aprendizaje automático.
 
 \section{Aplicación a "Azeroth Nodes"}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/1. Content/AzerothNodes.webp}
+        \caption{Azeroth Nodes Logo}
+        \label{fig: Azeroth Nodes Logo}
+    \end{subfigure}
+    \hfill
+\end{figure}
 
 "Azeroth Nodes", un proyecto DFS inspirado en GFS y HDFS, se centra en proporcionar un sistema de archivos distribuido robusto y eficiente, utilizando el lenguaje Rust. Este sistema busca combinar las mejores prácticas y lecciones aprendidas de GFS y HDFS, implementando una arquitectura que permite una escalabilidad masiva, alta disponibilidad y seguridad en el almacenamiento y recuperación de datos. La adaptación de estos principios a "Azeroth Nodes" no solo mejora la eficiencia y confiabilidad del almacenamiento de archivos distribuidos, sino que también abre nuevas posibilidades para aplicaciones avanzadas en el ámbito de big data y la analítica de datos.\newline \hfill \break
 
