@@ -25,13 +25,26 @@ El Google File System (GFS) es un DFS diseñado para sistemas de alta escala uti
 
 El Google File System (GFS) se distingue por su diseño adaptado a aplicaciones que manejan grandes cantidades de datos. La arquitectura de GFS se basa en tres componentes principales: un único servidor maestro (Master), múltiples servidores chunk (Chunkservers), y los clientes que acceden al sistema.
 
-\subsubsection{Arquitectura}
+\subsubsection{Arquitectura:}
 
 \begin{itemize}
     \item \textbf{Master Server:} Gestiona el espacio de nombres del sistema de archivos, controla el mapeo de los archivos a chunks (bloques de datos), y administra las operaciones de control sobre los chunks. Mantiene toda la metadata en RAM para un acceso rápido.
     \item \textbf{ChunkServers}: Almacenan los chunks (normalmente de 64 MB) en discos locales y sirven las solicitudes de lectura y escritura de los clientes. Los chunks se replican en varios ChunkServers para garantizar la tolerancia a fallos.
 \end{itemize}
 
+\subsubsection{Coherencia y Replicación:}
+
+\begin{itemize}
+    \item GFS utiliza un modelo de coherencia relajado, donde las modificaciones concurrentes podrían resultar en versiones temporales no consistentes de los datos. Sin embargo, mediante la generación de versiones y la propagación de actualizaciones, GFS asegura la consistencia final de los datos.
+    \item La replicación de chunks en múltiples ChunkServers mejora la disponibilidad y la fiabilidad. GFS también implementa un mecanismo de recuperación rápida en caso de fallos de nodos.
+\end{itemize}
+
+\subsubsection{Características útiles para el desarrollo de "Azeroth Nodes":}
+
+\begin{itemize}
+    \item La arquitectura de GFS ofrece un modelo efectivo para manejar grandes volúmenes de datos con alta disponibilidad. Para "Azeroth Nodes", adaptar una estructura similar podría proporcionar un balance entre rendimiento y confiabilidad.
+    \item La gestión eficiente de metadatos y el enfoque en la coherencia y replicación son aspectos cruciales para un DFS como "Azeroth Nodes", especialmente en entornos de big data.
+\end{itemize}
 
 \section{Hadoop Distributed File System (HDFS)}
 
@@ -48,6 +61,29 @@ El Google File System (GFS) se distingue por su diseño adaptado a aplicaciones 
 
 El Hadoop Distributed File System (HDFS) es otro sistema DFS de gran relevancia, diseñado para trabajar con el framework de MapReduce. HDFS es conocido por su capacidad de almacenar enormes conjuntos de datos, su modelo de replicación para garantizar la disponibilidad de datos, y su arquitectura que permite la distribución efectiva y la replicación de los datos en múltiples nodos.
 
+\subsection{Principios Clave de HDFS}
+
+El Hadoop Distributed File System (HDFS) es un sistema de archivos diseñado para almacenar grandes conjuntos de datos de manera confiable y eficiente. Su arquitectura se compone de un NameNode y múltiples DataNodes.
+
+\subsubsection{Arquitectura:}
+
+\begin{itemize}
+    \item \textbf{NameNode:} Mantiene y gestiona el espacio de nombres del sistema de archivos. Guarda la metadata, como la estructura del árbol de archivos, permisos, y el mapeo de archivos a bloques de datos.
+    \item \textbf{DataNodes:} Almacenan los datos efectivos en forma de bloques (usualmente de 128 MB). Cada bloque de datos se replica en varios DataNodes según la política de replicación.
+\end{itemize}
+
+\subsubsection{Coherencia y Replicación:}
+
+\begin{itemize}
+    \item HDFS se basa en un modelo de escritura una vez, lectura muchas veces (WORM). Esto significa que una vez que un archivo se escribe, no se puede modificar, solo leer o agregar más datos.
+    \item La replicación de datos en múltiples DataNodes proporciona tolerancia a fallos y alta disponibilidad. HDFS también realiza un balanceo y redistribución de bloques para optimizar el almacenamiento y el acceso a los datos.
+\end{itemize}
+
+\subsubsection{Características útiles para el desarrollo de "Azeroth Nodes":}
+
+\begin{itemize}
+    \item Considerando la eficiencia de HDFS en el manejo de grandes datos, su integración con sistemas de procesamiento como MapReduce puede ser un punto de referencia valioso para "Azeroth Nodes".
+    \item La arquitectura de HDFS con un NameNode central y múltiples DataNodes proporciona un modelo claro para la gestión y el almacenamiento distribuido, que puede ser adaptado en "Azeroth Nodes" para mejorar la escalabilidad y el rendimiento.
 \section{Comparación y Contraste entre GFS y HDFS}
 
 Aunque GFS y HDFS comparten similitudes en términos de ser sistemas de archivos distribuidos diseñados para manejar grandes conjuntos de datos, tienen diferencias significativas en términos de arquitectura y manejo de operaciones. Por ejemplo, GFS fue diseñado específicamente para las necesidades internas de Google, mientras que HDFS es un proyecto de código abierto, parte de Apache Hadoop, y es ampliamente utilizado en muchas aplicaciones de procesamiento de datos.
