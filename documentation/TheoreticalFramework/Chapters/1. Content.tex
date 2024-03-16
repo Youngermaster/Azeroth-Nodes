@@ -39,11 +39,11 @@ El Google File System (GFS) se distingue por su diseño adaptado a aplicaciones 
     \item La replicación de chunks en múltiples ChunkServers mejora la disponibilidad y la fiabilidad. GFS también implementa un mecanismo de recuperación rápida en caso de fallos de nodos.
 \end{itemize}
 
-\subsubsection{Características útiles para el desarrollo de "Azeroth Nodes":}
+\subsubsection{Características útiles para el desarrollo de Azeroth Nodes:}
 
 \begin{itemize}
-    \item La arquitectura de GFS ofrece un modelo efectivo para manejar grandes volúmenes de datos con alta disponibilidad. Para "Azeroth Nodes", adaptar una estructura similar podría proporcionar un balance entre rendimiento y confiabilidad.
-    \item La gestión eficiente de metadatos y el enfoque en la coherencia y replicación son aspectos cruciales para un DFS como "Azeroth Nodes", especialmente en entornos de big data.
+    \item La arquitectura de GFS ofrece un modelo efectivo para manejar grandes volúmenes de datos con alta disponibilidad. Para Azeroth Nodes, adaptar una estructura similar podría proporcionar un balance entre rendimiento y confiabilidad.
+    \item La gestión eficiente de metadatos y el enfoque en la coherencia y replicación son aspectos cruciales para un DFS como Azeroth Nodes, especialmente en entornos de big data.
 \end{itemize}
 
 \section{Hadoop Distributed File System (HDFS)}
@@ -79,11 +79,11 @@ El Hadoop Distributed File System (HDFS) es un sistema de archivos diseñado par
     \item La replicación de datos en múltiples DataNodes proporciona tolerancia a fallos y alta disponibilidad. HDFS también realiza un balanceo y redistribución de bloques para optimizar el almacenamiento y el acceso a los datos.
 \end{itemize}
 
-\subsubsection{Características útiles para el desarrollo de "Azeroth Nodes":}
+\subsubsection{Características útiles para el desarrollo de Azeroth Nodes:}
 
 \begin{itemize}
-    \item Considerando la eficiencia de HDFS en el manejo de grandes datos, su integración con sistemas de procesamiento como MapReduce puede ser un punto de referencia valioso para "Azeroth Nodes".
-    \item La arquitectura de HDFS con un NameNode central y múltiples DataNodes proporciona un modelo claro para la gestión y el almacenamiento distribuido, que puede ser adaptado en "Azeroth Nodes" para mejorar la escalabilidad y el rendimiento.
+    \item Considerando la eficiencia de HDFS en el manejo de grandes datos, su integración con sistemas de procesamiento como MapReduce puede ser un punto de referencia valioso para Azeroth Nodes.
+    \item La arquitectura de HDFS con un NameNode central y múltiples DataNodes proporciona un modelo claro para la gestión y el almacenamiento distribuido, que puede ser adaptado en Azeroth Nodes para mejorar la escalabilidad y el rendimiento.
 \section{Comparación y Contraste entre GFS y HDFS}
 
 Aunque GFS y HDFS comparten similitudes en términos de ser sistemas de archivos distribuidos diseñados para manejar grandes conjuntos de datos, tienen diferencias significativas en términos de arquitectura y manejo de operaciones. Por ejemplo, GFS fue diseñado específicamente para las necesidades internas de Google, mientras que HDFS es un proyecto de código abierto, parte de Apache Hadoop, y es ampliamente utilizado en muchas aplicaciones de procesamiento de datos.
@@ -92,7 +92,7 @@ Aunque GFS y HDFS comparten similitudes en términos de ser sistemas de archivos
 
 Tanto GFS como HDFS han tenido un impacto considerable en el diseño y desarrollo de aplicaciones modernas de big data. Su capacidad para manejar grandes volúmenes de datos de manera eficiente y confiable ha permitido el desarrollo de soluciones avanzadas en áreas como el análisis de datos, la minería de datos y el aprendizaje automático.
 
-\section{Aplicación a "Azeroth Nodes"}
+\section{Aplicación a Azeroth Nodes}
 
 \begin{figure}[H]
     \centering
@@ -105,6 +105,6 @@ Tanto GFS como HDFS han tenido un impacto considerable en el diseño y desarroll
     \hfill
 \end{figure}
 
-"Azeroth Nodes", un proyecto DFS inspirado en GFS y HDFS, se centra en proporcionar un sistema de archivos distribuido robusto y eficiente, utilizando el lenguaje Rust. Este sistema busca combinar las mejores prácticas y lecciones aprendidas de GFS y HDFS, implementando una arquitectura que permite una escalabilidad masiva, alta disponibilidad y seguridad en el almacenamiento y recuperación de datos. La adaptación de estos principios a "Azeroth Nodes" no solo mejora la eficiencia y confiabilidad del almacenamiento de archivos distribuidos, sino que también abre nuevas posibilidades para aplicaciones avanzadas en el ámbito de big data y la analítica de datos.\newline \hfill \break
+Azeroth Nodes, un proyecto DFS inspirado en GFS y HDFS, se centra en proporcionar un sistema de archivos distribuido robusto y eficiente, utilizando el lenguaje Rust. Este sistema busca combinar las mejores prácticas y lecciones aprendidas de GFS y HDFS, implementando una arquitectura que permite una escalabilidad masiva, alta disponibilidad y seguridad en el almacenamiento y recuperación de datos. La adaptación de estos principios a Azeroth Nodes no solo mejora la eficiencia y confiabilidad del almacenamiento de archivos distribuidos, sino que también abre nuevas posibilidades para aplicaciones avanzadas en el ámbito de big data y la analítica de datos.\newline \hfill \break
 
-Este marco teórico proporciona una base sólida para entender los sistemas DFS y su aplicación en "Azeroth Nodes", presentando cómo este proyecto puede ser una evolución o contribución significativa en el ámbito de almacenamiento y procesamiento de grandes volúmenes de datos.
+Este marco teórico proporciona una base sólida para entender los sistemas DFS y su aplicación en Azeroth Nodes, presentando cómo este proyecto puede ser una evolución o contribución significativa en el ámbito de almacenamiento y procesamiento de grandes volúmenes de datos.
