@@ -17,3 +17,8 @@ class DataNode:
             with open(block_path, "r") as file:
                 return file.read()
         return ""  # Returns an empty string if block not found
+
+    def delete_block(self, block_id: str) -> None:
+        block_path = os.path.join(self.storage, block_id)
+        if os.path.exists(block_path):
+            os.remove(block_path)

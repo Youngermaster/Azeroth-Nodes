@@ -12,9 +12,7 @@ class DFSClient:
         ]
         data_blocks = []
         for block_id, block_data in enumerate(blocks):
-            data_node = (
-                self.name_node
-            )  # Simplification: assuming NameNode decides where to store
+            data_node = self.name_node
             response = requests.post(
                 f"{data_node}/store_block",
                 json={"block_id": str(block_id), "block_data": block_data},
@@ -41,3 +39,13 @@ class DFSClient:
                     file_data.append(block_response.text)
             return "".join(file_data)
         return ""
+
+    def delete_file(self, file_name: str) -> None:
+        data_blocks = requests.post(
+            f"{self.name_node}/delete_file_metadata", json={"file_name": file_name}
+        )
+        if data_blocks.ok:
+            for block_id, data_node in data_blocks.json():
+                requests.post(
+                    f"{data_node}/delete_block", json={"block_id": str(block_id)}
+                )
